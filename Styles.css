@@ -1,0 +1,1167 @@
+/* General Styles */
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+  overflow-x: hidden;
+  border: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-in-out forwards;
+}
+
+/* Logo Styling */
+.logo img {
+  width: 120px; /* Adjust the size as needed */
+  height: auto; /* Maintain the aspect ratio */
+  display: block;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-links ul li a.active {
+  color: #FF0BF4;
+  font-weight: bold;
+  border-bottom: 2px solid #FF0BF4;
+}
+
+/* Navbar Link Text Animation */
+.nav-links ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+  color: #FF0BF4;
+  transform: translateY(-5px);
+}
+
+/* Actions buttons styling */
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.play-btn, .donate-btn {
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.play-btn {
+  background-color: #FF0BF4;
+  color: white;
+}
+
+.donate-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #FF0BF4;
+}
+
+.play-btn:hover {
+  background-color: #B200A9;
+}
+
+.donate-btn:hover {
+  background-color: #FF0BF4;
+  color: white;
+}
+
+.play-btn:active, .donate-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Navbar */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.menu-toggle.active i::before{
+  content: '\f00d';
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    height: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px 0;
+    animation: fadeInRight 0.5s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+  }
+
+  .nav-links ul li {
+    margin: 10px 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #000000;
+  color: white;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.hero-left {
+  max-width: 50%;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-left h1 {
+  font-size: 36px;
+  color: #FF0BF4;
+  margin-bottom: 20px;
+}
+
+.hero-left p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-btn {
+  background-color: #FF0BF4;
+  color: white;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #FF0BF4;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.register-btn:hover {
+  background-color: #B200A9;
+}
+
+.login-btn:hover {
+  background-color: #FF0BF4;
+  color: white;
+}
+
+/* Card Section */
+.hero-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background-color: #252525;
+  width: 170px;
+  height: 220px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.card h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+  
+}
+
+.card p {
+  font-size: 10px;
+  color: #fff;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-right {
+  flex: 1;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 0.7s;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding and borders don't increase width */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.footer p {
+  margin: 10px 0;
+  word-wrap: break-word; /* Handle long text wrapping */
+}
+
+.footer a {
+  color: #FF0BF4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #e63c7b;
+  text-decoration: underline;
+}
+
+.footer i {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #FF0BF4;
+  transition: color 0.3s ease;
+}
+
+.footer i:hover {
+  color: #e63c7b;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsive (<= 768px) */
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero-left {
+    max-width: 90%; /* Heading and description take 90% width */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .hero-left h1 {
+    font-size: 30px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-cards {
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+  
+
+
+  .hero-image {
+    display: none; /* Hide hero image on smaller devices */
+  }
+}
+
+/* Larger Devices (Tablet and up) */
+@media screen and (min-width: 769px) {
+  .hero {
+    flex-direction: row;
+    padding: 50px;
+  }
+
+  .hero-left {
+    max-width: 50%;
+    text-align: left;
+    margin-right: 30px;
+  }
+
+  .hero-cards {
+    flex-direction: row;
+    gap: 20px;
+    width: auto;
+    margin-top: 0;
+  }
+
+  .card {
+    width: 170px;
+    height: 220px;
+    padding: 0;
+  }
+
+  .hero-image {
+    display: block;
+  }
+}
+
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup-btn {
+    width: 100%;
+  }
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  color: #FF0BF4;
+  margin: 20px 0;
+}
+
+a {
+  color: #FF0BF4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Updates Section */
+.updates {
+  padding: 20px;
+}
+
+.updates-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.update-card {
+  background: linear-gradient(to bottom, #FF0BF4, #252525);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-card.dark {
+  background: linear-gradient(to bottom, #1e1e1e, #000);
+}
+
+.update-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.update-card .badge {
+  background-color: #B200A9;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.update-card:hover .badge {
+  background-color: white;
+  color: #FF0BF4;
+}
+
+.update-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.update-card p {
+  font-size: 14px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 15px;
+}
+
+.more-news {
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Top Servers Section */
+.top-servers {
+  margin: 40px 0;
+}
+
+.server-ranking {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.server-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.server-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.server-info h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+  margin: 0;
+}
+
+.server-info p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.server-stats {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+
+/* Like Progress Bar */
+.progress-bar {
+  width: 100%;
+  background-color: #444;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer; /* Change cursor to pointer to indicate interaction */
+  transition: transform 0.2s ease;
+}
+
+.progress {
+  height: 100%;
+  background-color: #FF0BF4;
+  width: 0%; /* Default width */
+  transition: width 0.5s ease-in-out, transform 0.3s ease;
+}
+
+/* Hover effect on progress bar */
+.progress-bar:hover .progress {
+  background-color: #B200A9; /* Lighter shade of pink when hovered */
+  box-shadow: 0 0 10px rgba(255, 74, 141, 0.7); /* Subtle glowing effect */
+  transform: scaleX(1.05); /* Slight scale effect to emphasize hover */
+}
+
+/* Setting progress width for different server cards */
+.server-card:nth-child(1) .progress {
+  width: 50%; /* First card's progress */
+}
+
+.server-card:nth-child(2) .progress {
+  width: 70%; /* Second card's progress */
+}
+
+/* Servers Section */
+.servers-section {
+  margin: 40px 0;
+}
+
+.server-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.normal-server {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+  background-image: url('path/to/your/image.jpg'); /* Add background image here */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.normal-server:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.server-info h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+  margin: 0;
+}
+
+.server-info p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.server-stats {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* Like Progress Bar */
+.server-progress-bar {
+  width: 100%;
+  background-color: #444;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer; /* Change cursor to pointer to indicate interaction */
+}
+
+.server-progress {
+  height: 100%;
+  background-color: #FF0BF4;
+  width: 0%; /* Default width */
+  transition: width 0.5s ease-in-out;
+}
+
+/* Hover effect on progress bar */
+.server-progress-bar:hover .server-progress {
+  background-color: #B200A9; /* Lighter shade of pink when hovered */
+  box-shadow: 0 0 10px rgba(255, 74, 141, 0.7); /* Subtle glowing effect */
+}
+
+/* Setting progress width for different server cards */
+.normal-server:nth-child(1) .server-progress {
+  width: 50%; /* First card's progress */
+}
+
+.normal-server:nth-child(2) .server-progress {
+  width: 70%; /* Second card's progress */
+}
+
+.normal-server:nth-child(3) .server-progress {
+  width: 80%; /* Third card's progress */
+}
+
+.normal-server:nth-child(4) .server-progress {
+  width: 60%; /* Fourth card's progress */
+}
+
+.normal-server:nth-child(5) .server-progress {
+  width: 90%; /* Fifth card's progress */
+}
+
+.normal-server:nth-child(6) .server-progress {
+  width: 75%; /* Sixth card's progress */
+}
+
+/* Main Section */
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start; /* Align items at the top */
+}
+
+/* Left Card */
+.left-card {
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%;
+  height: 400px; /* Fixed height for the left card */
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.left-card h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+}
+
+.left-card p {
+  color: white;
+  font-size: 14px;
+}
+
+/* Middle Cards - Centered and Taller */
+.middle-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 60%; /* Occupies 60% of the container width */
+  height: 450px; /* Taller than the last one */
+  justify-content: center; /* Center cards vertically */
+  text-align: center;
+}
+
+.middle-card {
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+  width: 250px; /* Fixed width for the middle cards */
+  height: 120px; /* Set a fixed height for each card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.middle-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+.middle-card h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+}
+
+.middle-card p {
+  color: white;
+  font-size: 14px;
+}
+
+.middle-card.minecraft {
+  height: 130px; /* Minecraft card has a more prominent size */
+}
+
+.middle-card.youtube,
+.middle-card.discord {
+  height: 120px; /* Equal height for YouTube and Discord cards */
+}
+
+/* YouTube Button Style */
+.middle-card.youtube button {
+  background-color: #ff0000; /* YouTube red */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.middle-card.youtube button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Discord Button Style */
+.middle-card.discord button {
+  background-color: #7289da; /* Discord blue */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.middle-card.discord button:hover {
+  background-color: #5e6a8d; /* Darker blue on hover */
+}
+
+/* Right Description */
+.right-description {
+  width: 250px; /* Adjusted width of right description */
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.right-description:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.right-description h3 {
+  color: #FF0BF4;
+  font-size: 18px;
+}
+
+.right-description p {
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+    align-items: center; /* Center content for smaller screens */
+  }
+
+  .left-card, .middle-cards, .right-description {
+    width: 100%;
+  }
+
+  .middle-cards {
+    order: 1; /* Make sure the middle cards stay at the top */
+  }
+
+  .right-description {
+    order: 2; /* Place the right description under the middle cards */
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .updates-cards,
+  .server-ranking {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .update-card,
+  .server-card {
+    width: 90%;
+  }
+}
+/* Popup overlay to cover the screen */
+.popup-overlay {
+  position: fixed;
+  bottom: 20px; /* Position at the bottom of the screen */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: auto;
+  height: auto;
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start as invisible */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* The popup box itself */
+.popup {
+  background-color: white;
+  width: 200px; /* Small width */
+  height: 80px; /* Small height */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 14px;
+  position: relative; /* For positioning the close button */
+}
+
+/* Close button in the top-right corner */
+.close-popup-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+.start-game-btn {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-game-btn:hover {
+  background-color: #1558b4;
+}
+
+/* Keyframe animation for popup fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Box Container *//* Box Container */
+.box-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* Box Styles */
+.box {
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+/* Small Box Container */
+.small-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 0.5;
+    margin-top: 10px; /* Added spacing */
+}
+
+/* Small Boxes */
+.small-box {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+/* Main Left Box */
+.left-box {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px; /* Added padding */
+}
+
+/* Right Section (Three Boxes) */
+.right-box {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 10px 0; /* Added margin to prevent collision */
+}
+
+.link-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-box img {
+    max-width: 50px;
+    border-radius: 50%; /* Makes icons round */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+}
+
+.link-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 242, 1);
+}
+
+/* Color Variants */
+.blue{
+  background-color: #3498db;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.gray {
+    background-color: #7f8c8d;
+}
+
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .box-container {
+        flex-direction: column; /* Stack the boxes vertically */
+        align-items: center; /* Center align the boxes */
+    }
+
+    .box {
+        flex: 1 1 90%; /* Make each box take up most of the container width on small screens */
+        margin-bottom: 20px; /* Add space between the boxes */
+    }
+
+    /* Small Box Container to Stack Horizontally */
+    .small-box-container {
+        flex: 1 1 100%; /* Take full width */
+        display: flex; /* Use flexbox for horizontal layout */
+        justify-content: space-between; /* Ensure horizontal alignment */
+    }
+
+    .small-box {
+        flex: 1 1 30%; /* Each small box takes up 30% of the container */
+        margin: 0 10px; /* Add space between the small boxes */
+    }
+
+    .left-box {
+        order: -1; /* Ensure left box stays on top */
+        flex: 1 1 100%; /* Take full width */
+    }
+
+    .right-box {
+        flex: 1 1 100%; /* Make right box take full width */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .link-box {
+        padding: 12px; /* Reduced padding for better fit on small screens */
+    }
+
+    .link-box img {
+        max-width: 40px; /* Reduce icon size for smaller screens */
+    }
+}
